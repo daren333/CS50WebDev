@@ -1,0 +1,28 @@
+{% extends "layout.html %}
+
+{% block title %}
+	Books
+{% endblock %}
+
+{% block body %}
+	<h1> Welcome! </h1>
+
+	<h2> New Users: </h2>
+
+	<div class="form-group">
+		<input class="form-control" name="username" placeholder="Username">
+	</div>
+	
+	<div class="form-group">
+		<input class="form-control" name="password" placeholder="Password">
+	</div>
+	
+	<div class="form-group">
+		<button class="btn btn-primary">Log In!</button>
+	</div>
+
+	<div class="form-group">
+		<button class="btn btn-primary">Register!</button>
+	</div>
+
+{% endblock %}
