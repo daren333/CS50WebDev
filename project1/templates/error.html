@@ -1,14 +1,12 @@
 {% extends "layout.html" %}
 
 {% block title %}
-	Books
+	Error
 {% endblock %}
 
 {% block body %}
-	<h1> Welcome! </h1>
-	<p>
-		Login Failed
-	</p>
+	<h1>Error</h1>
+	{{ message }}
 	<a href="{{ url_for('index.html') }}">Back to Homepage</a>
 	
 {% endblock %}

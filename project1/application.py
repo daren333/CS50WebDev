@@ -26,21 +26,24 @@ users = {}
 def index():
     return render_template("index.html")
 
-@app.route("/login")
+@app.route("/login", methods=["POST"])
 def login():
     username = request.form.get("username")
     password = request.form.get("password")
-    if users.has_key(username) & users[username] == password:
-        return render_template("login_success.html")
+    if users[username] != None:
+        if users[username] == password:
+            return render_template("search.html")
+        else:
+            return render_template("error.html", message="Incorrect Password")
     else:
-        return render_template("login_failure.html")
+        return render_template("error.html", message="Invalid Username")
 
-@app.route("/register")
+@app.route("/register", methods=["POST"])
 def register():
     username = request.form.get("username")
     password = request.form.get("password")
-    if users.has_key(username):
-        return render_template("username_exists.html")
+    if users[username] != None:
+        return render_template("error.html", message="Username already exists")
     else:
         users[username] = password
         return render_template("index.html")
